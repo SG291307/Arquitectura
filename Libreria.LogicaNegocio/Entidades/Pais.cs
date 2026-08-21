@@ -1,4 +1,4 @@
-﻿namespace LibreriaWebAppMVC.Entidades
+﻿namespace Libreria.LogicaNegocio.Entidades
 {
     public class Pais
     {

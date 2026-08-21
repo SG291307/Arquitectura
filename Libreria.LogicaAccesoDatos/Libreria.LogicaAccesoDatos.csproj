@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Libreria.LogicaNegocio\Libreria.LogicaNegocio.csproj" />
+  </ItemGroup>
+
 </Project>

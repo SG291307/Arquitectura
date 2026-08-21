@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="Libreria.LogicaAccesoDatos/Libreria.LogicaAccesoDatos.csproj" />
-  <Project Path="Libreria.LogicaAplicaion/Libreria.LogicaAplicaion.csproj" />
+  <Project Path="Libreria.LogicaAplicaion/Libreria.LogicaAplicacion.csproj" />
   <Project Path="Libreria.LogicaNegocio/Libreria.LogicaNegocio.csproj" />
   <Project Path="LibreriaWebAppMVC/LibreriaWebAppMVC.csproj" />
 </Solution>
