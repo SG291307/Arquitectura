@@ -1,0 +1,52 @@
+﻿@model List<Libreria.LogicaNegocio.Entidades.Pais>
+
+@{
+    ViewData["Title"] = "Lista de Países";
+}
+<h1>Listado Paises</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Codigo
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Nombre
+                </td>
+                <td>
+                    @item.Codigo
+                </td>
+
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Detalles", "Details", new { codigo = item.Codigo }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -6,15 +6,14 @@ using System.Text;
 
 namespace Libreria.LogicaAplicacion.CasosUso.CUPais
 {
-    public class CUAltaPais
+    public class CUObtenerPaises
     {
-
         private RepositorioPais _repoPais = new RepositorioPais();
 
-        public void Ejecutar(Pais p)
+        public List<Pais> Ejecutar()
         {
-            //Lo valida
-            _repoPais.Add(p);
+            return _repoPais.FindAll();
         }
+
     }
 }
