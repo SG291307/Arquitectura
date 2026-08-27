@@ -1,14 +1,21 @@
 ﻿using Libreria.LogicaAccesoDatos.Repositorios;
+using Libreria.LogicaAplicacion.ICasosUso.ICUPais;
 using Libreria.LogicaNegocio.Entidades;
+using Libreria.LogicaNegocio.IRepositorios;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Libreria.LogicaAplicacion.CasosUso.CUPais
 {
-    public class CUObtenerPaises
+    public class CUObtenerPaises : ICUObtenerPaises
     {
-        private RepositorioPais _repoPais = new RepositorioPais();
+        private IRepositorioPais _repoPais;
+
+        public CUObtenerPaises(IRepositorioPais repoPais)
+        {
+            _repoPais = repoPais;
+        }
 
         public List<Pais> Ejecutar()
         {

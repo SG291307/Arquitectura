@@ -1,11 +1,12 @@
 ﻿using Libreria.LogicaNegocio.Entidades;
+using Libreria.LogicaNegocio.IRepositorios;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Libreria.LogicaAccesoDatos.Repositorios
 {
-    public class RepositorioPais
+    public class RepositorioPais:IRepositorioPais
     {
         private static  List<Pais> paises = new List<Pais>() 
         {
@@ -35,6 +36,12 @@ namespace Libreria.LogicaAccesoDatos.Repositorios
             List<Pais> ret = paises.Where(p => p.Continente == continente).ToList();
             return ret;
 
+        }
+
+        public Pais FindById(int id)
+        {
+            Pais buscado = paises.Where(p => p.Id == id).SingleOrDefault();
+            return buscado;
         }
     }
 }

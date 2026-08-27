@@ -1,7 +1,25 @@
+using Libreria.LogicaAccesoDatos.Repositorios;
+using Libreria.LogicaAplicacion.CasosUso.CUPais;
+using Libreria.LogicaAplicacion.ICasosUso.ICUPais;
+using Libreria.LogicaNegocio.IRepositorios;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+//Inyeccion dependencias REPOS
+builder.Services.AddScoped<IRepositorioPais, RepositorioPais>();
+
+
+//Inyeccion de Dependencias - Casos de uso
+builder.Services.AddScoped<ICUAltaPais, CUAltaPais>();
+builder.Services.AddScoped<ICUObtenerPaises, CUObtenerPaises>();
+builder.Services.AddScoped<ICUObtenerPaisXCodigo, CUObtenerPaisXCodigo>();
+
+
+
 
 var app = builder.Build();
 

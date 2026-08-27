@@ -1,4 +1,5 @@
 ﻿using Libreria.LogicaAplicacion.CasosUso.CUPais;
+using Libreria.LogicaAplicacion.ICasosUso.ICUPais;
 using Libreria.LogicaNegocio.Entidades;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,11 +7,20 @@ namespace LibreriaWebAppMVC.Controllers
 {
     public class PaisController : Controller
     {
-        private CUAltaPais _CuAltaPais = new CUAltaPais();
-        private CUObtenerPaises _CuObtenerPaises = new CUObtenerPaises();
+        private ICUAltaPais _CuAltaPais;
+        private ICUObtenerPaises _CuObtenerPaises;
 
-        private CUObtenerPaisXCodigo _CuObtenerPaisXCodigo = new CUObtenerPaisXCodigo();
+        private ICUObtenerPaisXCodigo _CuObtenerPaisXCodigo;
         
+
+        public PaisController(ICUAltaPais cUAltaPais,
+                              ICUObtenerPaises cUObtenerPaises,
+                              ICUObtenerPaisXCodigo cUObtenerPaisXCodigo) 
+        {
+            _CuAltaPais = cUAltaPais;
+            _CuObtenerPaises = cUObtenerPaises;
+            _CuObtenerPaisXCodigo = cUObtenerPaisXCodigo;
+        }
         
         public IActionResult Details(string codigo)
         {
