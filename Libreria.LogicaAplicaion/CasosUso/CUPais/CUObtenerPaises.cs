@@ -1,4 +1,6 @@
-﻿using Libreria.LogicaAccesoDatos.Repositorios;
+﻿using DTOs.DataTransferObjects.DTOPais;
+using DTOs.Mappers;
+using Libreria.LogicaAccesoDatos.Repositorios;
 using Libreria.LogicaAplicacion.ICasosUso.ICUPais;
 using Libreria.LogicaNegocio.Entidades;
 using Libreria.LogicaNegocio.IRepositorios;
@@ -17,10 +19,16 @@ namespace Libreria.LogicaAplicacion.CasosUso.CUPais
             _repoPais = repoPais;
         }
 
-        public List<DTOAltaPais> Ejecutar()
+        public List<DTOPais> Ejecutar()
         {
-            return _repoPais.FindAll();
-        }
+            //Mappear la lista de Pais(que viene de la base) a Lista de DTOPais(que es la que se va a devolver)
 
+            List<Pais> todoslosPaises = _repoPais.FindAll();
+            List<DTOPais> listaParaRetornar = MapperPais.ToDtoPaisList(todoslosPaises);
+            return listaParaRetornar;
+
+            //Otra forma de hacerlo mas facil
+            //return MapperPais.ToDtoPaisList(_repoPais.FindAll());
+        }
     }
 }

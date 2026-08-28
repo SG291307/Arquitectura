@@ -1,6 +1,5 @@
-﻿using Libreria.LogicaAccesoDatos.Repositorios;
+﻿using DTOs.DataTransferObjects.DTOPais;
 using Libreria.LogicaAplicacion.ICasosUso.ICUPais;
-using Libreria.LogicaNegocio.Entidades;
 using Libreria.LogicaNegocio.IRepositorios;
 using System;
 using System.Collections.Generic;
@@ -8,18 +7,18 @@ using System.Text;
 
 namespace Libreria.LogicaAplicacion.CasosUso.CUPais
 {
-    public class CUObtenerPaisXCodigo : ICUObtenerPaisXCodigo
+    internal class CUUsuariosXPais : ICUUsuariosXPais
     {
         private IRepositorioPais _repoPais;
 
-        public CUObtenerPaisXCodigo(IRepositorioPais repoPais)
+        public CUUsuariosXPais(IRepositorioPais repoPais)
         {
             _repoPais = repoPais;
         }
-
-        public Pais Ejecutar(string codigo)
+        public List<DTOUsuariosXPais> Ejecutar()
         {
-            return _repoPais.FindByCodigo(codigo); 
+            // 1- Salgo a buscar los paises
+            List<Pais> todoslosPaises = _repoPais.FindAll();
         }
     }
 }

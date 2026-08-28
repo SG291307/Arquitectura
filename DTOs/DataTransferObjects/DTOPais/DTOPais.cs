@@ -10,5 +10,7 @@ namespace DTOs.DataTransferObjects.DTOPais
         public string Nombre { get; set; }
         public string Codigo { get; set; }
         public string Continente { get; set; }
+
+        public string TodosMisDatos {  get; set; }
     }
 }
