@@ -7,6 +7,6 @@ namespace Libreria.LogicaAplicacion.ICasosUso.ICUPais
 {
     public interface ICUObtenerPaisXCodigo
     {
-        Pais Ejecutar(string codigo);
+        DTOAltaPais Ejecutar(string codigo);
     }
 }

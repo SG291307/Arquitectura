@@ -1,4 +1,5 @@
-﻿using Libreria.LogicaAplicacion.CasosUso.CUPais;
+﻿using DTOs.DataTransferObjects.DTOPais;
+using Libreria.LogicaAplicacion.CasosUso.CUPais;
 using Libreria.LogicaAplicacion.ICasosUso.ICUPais;
 using Libreria.LogicaNegocio.Entidades;
 using Microsoft.AspNetCore.Mvc;
@@ -24,13 +25,13 @@ namespace LibreriaWebAppMVC.Controllers
         
         public IActionResult Details(string codigo)
         {
-            Pais Buscado = _CuObtenerPaisXCodigo.Ejecutar(codigo);
+            DTOAltaPais Buscado = _CuObtenerPaisXCodigo.Ejecutar(codigo);
             return View(Buscado);
         }
 
         public IActionResult Index()
         {
-            List<Pais> TodosLosPaises = _CuObtenerPaises.Ejecutar();
+            List<DTOAltaPais> TodosLosPaises = _CuObtenerPaises.Ejecutar();
             return View(TodosLosPaises);
         }
         
@@ -43,7 +44,7 @@ namespace LibreriaWebAppMVC.Controllers
 
         [HttpPost]
 
-        public IActionResult Create(Pais p)
+        public IActionResult Create(DTOAltaPais p)
         {
             try
             {
@@ -56,5 +57,7 @@ namespace LibreriaWebAppMVC.Controllers
             }
                 return View();
         }
+
+
     }
 }

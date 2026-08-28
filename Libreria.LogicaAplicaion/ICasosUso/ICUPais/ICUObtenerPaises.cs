@@ -7,6 +7,6 @@ namespace Libreria.LogicaAplicacion.ICasosUso.ICUPais
 {
     public interface ICUObtenerPaises
     {
-        List<Pais> Ejecutar();
+        List<DTOAltaPais> Ejecutar();
     }
 }

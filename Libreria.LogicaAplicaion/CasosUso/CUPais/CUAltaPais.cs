@@ -2,9 +2,11 @@
 using Libreria.LogicaAplicacion.ICasosUso.ICUPais;
 using Libreria.LogicaNegocio.Entidades;
 using Libreria.LogicaNegocio.IRepositorios;
+using DTOs.DataTransferObjects.DTOPais;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DTOs.Mappers;
 
 namespace Libreria.LogicaAplicacion.CasosUso.CUPais
 {
@@ -18,10 +20,15 @@ namespace Libreria.LogicaAplicacion.CasosUso.CUPais
             _repoPais = repoPais;
         }
 
-        public void Ejecutar(Pais p)
+        public void Ejecutar(DTOAltaPais p)
         {
-            //Lo valida
-            _repoPais.Add(p);
+            //1 - Lo valida
+
+            //2 - Mappear de DTO a Entidad
+
+            Pais nuevo = MapperPais.ToPais(p);
+
+            _repoPais.Add(nuevo);
         }
     }
 }

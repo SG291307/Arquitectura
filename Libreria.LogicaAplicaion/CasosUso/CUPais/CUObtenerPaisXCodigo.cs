@@ -16,7 +16,7 @@ namespace Libreria.LogicaAplicacion.CasosUso.CUPais
         {
             _repoPais = repoPais;
         }
-        public Pais Ejecutar(string codigo)
+        public DTOAltaPais Ejecutar(string codigo)
         {
             return _repoPais.FindByCodigo(codigo);
         }
