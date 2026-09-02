@@ -1,9 +1,18 @@
+using Libreria.LogicaAccesoDatos;
 using Libreria.LogicaAccesoDatos.Repositorios;
 using Libreria.LogicaAplicacion.CasosUso.CUPais;
 using Libreria.LogicaAplicacion.ICasosUso.ICUPais;
 using Libreria.LogicaNegocio.IRepositorios;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configurar la cadena de conexión (desde appsettings.json)
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//DefaultConnection debe coincidir con el nombre designado en el JSON.
+// Registrar el DbContext en el contenedor de servicios
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
