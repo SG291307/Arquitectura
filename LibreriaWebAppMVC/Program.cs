@@ -1,5 +1,7 @@
 using Libreria.LogicaAccesoDatos.Repositorios;
 using Libreria.LogicaAplicacion.CasosUso.CUPais;
+using Libreria.LogicaAplicacion.CasosUso.CUsAutor;
+using Libreria.LogicaAplicacion.ICasosUso.ICUAutor;
 using Libreria.LogicaAplicacion.ICasosUso.ICUPais;
 using Libreria.LogicaNegocio.IRepositorios;
 
@@ -11,12 +13,15 @@ builder.Services.AddControllersWithViews();
 
 //Inyeccion dependencias REPOS
 builder.Services.AddScoped<IRepositorioPais, RepositorioPais>();
+builder.Services.AddScoped<IRepositorioAutor, RepositorioAutor>();
+
 
 
 //Inyeccion de Dependencias - Casos de uso
 builder.Services.AddScoped<ICUAltaPais, CUAltaPais>();
 builder.Services.AddScoped<ICUObtenerPaises, CUObtenerPaises>();
 builder.Services.AddScoped<ICUObtenerPaisXCodigo, CUObtenerPaisXCodigo>();
+builder.Services.AddScoped<ICUObtenerAutores, CUObtenerAutores>();
 
 
 

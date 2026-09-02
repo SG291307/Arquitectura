@@ -2,16 +2,17 @@
 using Libreria.LogicaNegocio.IRepositorios;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Libreria.LogicaAccesoDatos.Repositorios
 {
     public class RepositorioPais : IRepositorioPais
     {
-        private static List<Pais> paises = new List<Pais>()
+        public static List<Pais> paises = new List<Pais>()
         {
-            new Pais { Id = 1, Codigo = "AR", Nombre = "Argentina", Continente = "America"},
-            new Pais { Id = 2, Codigo = "BR", Nombre = "Brasil", Continente = "America"},
-            new Pais { Id = 3, Codigo = "ES", Nombre = "España", Continente = "Europa" },
+            new Pais( "AR", "Argentina", "America"),
+            new Pais( "BR", "Brasil", "America"),
+            new Pais( "ES", "España", "Europa" ),
         };
 
         public void Add(Pais p)
@@ -40,6 +41,16 @@ namespace Libreria.LogicaAccesoDatos.Repositorios
         {
             Pais buscado = paises.Where(p => p.Id == id).SingleOrDefault();
             return buscado;
+        }
+
+        public void Remove(Pais ToEliminar)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Pais ToEditar)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -10,10 +10,8 @@ namespace DTOs.Mappers
     {
         public static Pais ToPais(DTOAltaPais dto)
         {
-            Pais nuevo = new Pais();
-            nuevo.Nombre = dto.Nombre;
-            nuevo.Codigo = dto.Codigo;
-            nuevo.Continente = dto.Continente;
+            Pais nuevo = new Pais(dto.Codigo, dto.Nombre, dto.Continente);
+            nuevo.Validar();
             return nuevo;
         }
 

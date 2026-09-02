@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using DTOs.DataTransferObjects.DTOPais;
+﻿using DTOs.DataTransferObjects.DTOPais;
 using Libreria.LogicaAplicacion.ICasosUso.ICUPais;
+using Libreria.LogicaNegocio.CustomExceptions.Genericas;
+using Libreria.LogicaNegocio.CustomExceptions.PaisException;
 using Libreria.LogicaNegocio.Entidades;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 
 namespace LibreriaWebAppMVC.Controllers
 {
@@ -47,9 +49,17 @@ namespace LibreriaWebAppMVC.Controllers
                 _CuAltaPais.Ejecutar(p);
                 ViewBag.msg = "País agregado correctamente.";
             }
-            catch (Exception)
+            catch (LargoCodigoInvalidoException e)
             {
-                ViewBag.msg = "Error al agregar el país.";
+                ViewBag.msg = "El código del país debe tener 3 caracteres.";
+            }
+            catch (DatoVacioException e)
+            {
+                ViewBag.msg = "Todos los campos son obligatorios y no pueden estar vacios.";
+            }
+            catch (Exception e)
+            {
+                ViewBag.msg = "Error inesperado";
             }
             return View();
         }

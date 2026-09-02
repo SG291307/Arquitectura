@@ -5,9 +5,7 @@ using System.Text;
 
 namespace Libreria.LogicaNegocio.IRepositorios
 {
-    public interface IRepositorioPais : IRepositorios<Pais>
+    public interface IRepositorioAutor : IRepositorios<Autor>
     {
-        Pais FindByCodigo(string codigo);
-        List<Pais> FindByContinente(string continente);
     }
 }
