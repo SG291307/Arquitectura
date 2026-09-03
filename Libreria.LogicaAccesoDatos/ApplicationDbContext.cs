@@ -21,7 +21,7 @@ namespace Libreria.LogicaAccesoDatos
         }
 
 
-        public DbSet<Pais> Entidades { get; set; }
+        public DbSet<Pais> Paises { get; set; }
 
     }
 }

@@ -1,17 +1,33 @@
 ﻿using Libreria.LogicaNegocio.Entidades;
 using Libreria.LogicaNegocio.IRepositorios;
+using Libreria.LogicaNegocio.ValueObjects.ValueAutor;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Libreria.LogicaAccesoDatos.Repositorios
 {
     public class RepositorioAutor : IRepositorioAutor
     {
-        private static List<Autor> autores = new List<Autor>()
+        private IRepositorioPais _repoPais;
+        private static List<Autor> autores;
+
+        public RepositorioAutor(IRepositorioPais repoPais)
         {
-        new Autor { Id = 1, Nombre = "Gabriel", Apellido = "García Márquez", Pais = RepositorioPais.paises[3] }
-        };
+            _repoPais = repoPais;
+
+            if (autores == null)
+            {
+                autores = new List<Autor>()
+                {
+                    new Autor
+                    {
+                        Id = 1,
+                        NombreCompleto = new AutorNombreCompleto { Nombre = "Gabriel", Apellido = "García Márquez" },
+                        Pais = _repoPais.FindByCodigo("ES")
+                    }
+                };
+            }
+        }
 
         public void Add(Autor nuevo)
         {
